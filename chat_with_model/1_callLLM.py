@@ -3,7 +3,7 @@ from openai import OpenAI
 
 # creat the model client
 client = OpenAI(
-    api_key="sk-ws-H.PYILXYE.JlAf.MEYCIQDz4NzjA0MVuel6UCtZqnPWXgvfqNn4SZ492V50YSXVrQIhAItuTEm5wDafIFhT_nyClGEgZJDnhAvTRVkifD0CDHey",
+    api_key=os.getenv("DASHSCOPE_API_KEY"),
     base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
 )
 
