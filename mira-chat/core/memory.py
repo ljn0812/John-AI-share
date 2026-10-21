@@ -78,7 +78,7 @@ class Memory:
         result = []
         facts = self.facts.get_all_facts()
         if facts:
-            facts_text = " | ".join([f"{k}:{v}" for k, v in facts])
+            facts_text = " | ".join([f"{k}:{v}" for k, v in facts.items()])
             result.append(AIMessage(content=f"[关键事实] {facts_text}"))
         summary = self.summary.get_summary()
         if summary:

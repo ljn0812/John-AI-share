@@ -43,7 +43,7 @@ class IntentRecognizer:
             confidence = 0.0
         confidence = max(0.0, min(1.0, confidence))
 
-        return IntentResult(intents=intents, slots=slots, score=confidence)
+        return IntentResult(intents=intents, slots=slots, confidence=confidence)
 
 
     def __parse_str_to_json(self, text: str) -> dict[str, Any]:
