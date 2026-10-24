@@ -5,6 +5,7 @@
       <sourceFolder url="file://$MODULE_DIR$/mira-chat" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/.venv" />
       <excludeFolder url="file://$MODULE_DIR$/mira-chat/.venv" />
+      <excludeFolder url="file://$MODULE_DIR$/smart_reading/.venv" />
     </content>
     <orderEntry type="jdk" jdkName="D:\PythonProject\John-AI-share\.venv" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
