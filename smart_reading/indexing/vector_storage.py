@@ -17,7 +17,7 @@ class VectorStorageManager:
         self._embeddings = embeddings
 
 
-    def load_or_build(self, file_hash: str, chunks: List[Document]) -> Chroma:
+    def load_or_build(self, file_hash: str, chunks: List[Document]=None) -> Chroma:
 
         if not file_hash:
             raise RuntimeError("File hash is empty, cannot load or build vector storage.")
@@ -32,7 +32,8 @@ class VectorStorageManager:
             collection_metadata={"hnsw:space": "cosine"}
         )
 
-        if vector_store._collection.count() > 0:
+        if self._has_data(vector_store):
+            logger.info(f"加载已有向量库: {collection_name}")
             return vector_store
 
         if not chunks:
@@ -71,3 +72,11 @@ class VectorStorageManager:
     def _get_collection_name(self, file_hash: str) -> str:
         # 根据文件路径生成集合名称
         return f"{self._config.collection_prefix }_{file_hash}"
+
+    def _has_data(self, vector_store: Chroma) -> bool:
+        """ 检查向量库是否已有数据 """
+        try:
+            return vector_store._collection.count() > 0
+        except Exception as e:
+            logger.warning(f"检查向量库数据失败: {e}")
+            return False
