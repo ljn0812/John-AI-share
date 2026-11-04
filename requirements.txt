@@ -115,3 +115,5 @@ widgetsnbextension==4.0.16
 
 langchain-community
 mcp<2
+
+langgraph
